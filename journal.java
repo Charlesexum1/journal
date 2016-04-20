@@ -13,14 +13,21 @@ import java.io.FileNotFoundException;
 
 public class journal {
 	
-	public static void main (String args[]) {
-		
-		String newEntry, recorder;
-				
-		System.out.println("record your thoughts.");
+	private String newEntry;
+	
+	private void setEntry(){
 		Scanner keys = new Scanner(System.in);
-		newEntry = keys.nextLine();
-		System.out.println("you said: " + newEntry);
+		newEntry = keys.next();
+		}
+	
+	private void greetings(){
+		System.out.println("Welcome to Journal.");
+		System.out.println("You may record your thoughts to a text file.");
+		}
+		
+	private void initializeTextOutput(){
+		String recorder;
+		Scanner keys = new Scanner(System.in);
 		System.out.println("Do you wish to record this to a text? (y/n)");
 		
 		recorder = keys.next();
@@ -51,7 +58,15 @@ public class journal {
 				System.out.println("you didn't type y or n");
 				break;
 			}
+		}	
+	
+	public static void main (String args[]) {
 		
+		journal demo = new journal();
+		demo.greetings();
+		demo.setEntry();
+		demo.initializeTextOutput();	
+				
 	}
 }
 
